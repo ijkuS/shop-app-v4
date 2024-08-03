@@ -12,20 +12,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
-       
 
-      - name: setting env.
-      # run: echo "The API key is ${{ secrets.API_KEY }}"
-      # run: echo "REACT_APP_KEY =${{secrets.REACT_APP_KEY}}" >> .env
-      # Here, you can use the secret in your commands or scripts
+      - name: Use Secret in Application
         run: |
-           echo "REACT_APP_FIREBASE_API_KEY =${{secrets.REACT_APP_FIREBASE_API_KEY}}" >> .env 
-           echo "REACT_APP_FIREBASE_AUTH_DOMAIN =${{secrets.REACT_APP_FIREBASE_AUTH_DOMAIN}}" >> .env
-           echo "REACT_APP_FIREBASE_DATABASE_URL =${{secrets.REACT_APP_FIREBASE_DATABASE_URL}}" >> .env
-           echo "REACT_APP_FIREBASE_PROJECT_ID =${{secrets.REACT_APP_FIREBASE_PROJECT_ID}}" >> .env
-           echo "REACT_APP_FIREBASE_STORAGE_BUCKET =${{secrets.REACT_APP_FIREBASE_STORAGE_BUCKET}}" >> .env
-           echo "REACT_APP_FIREBASE_SENDER_ID =${{secrets.REACT_APP_FIREBASE_SENDER_ID}}" >> .env
-           echo "REACT_APP_FIREBASE_APP_ID =${{secrets.REACT_APP_FIREBASE_APP_ID}}" >> .env
-           echo "REACT_APP_FIREBASE_MEASUREMENT_ID =${{secrets.REACT_APP_FIREBASE_MEASUREMENT_ID}}" >> .env
+          echo "REACT_APP_FIREBASE_API_KEY=${{secrets.REACT_APP_FIREBASE_API_KEY}}" >> .env
+          echo "REACT_APP_FIREBASE_AUTH_DOMAIN=${{secrets.REACT_APP_FIREBASE_AUTH_DOMAIN}}" >> .env
+          echo "REACT_APP_FIREBASE_DATABASE_URL=${{secrets.REACT_APP_FIREBASE_DATABASE_URL}}" >> .env
+          echo "REACT_APP_FIREBASE_PROJECT_ID=${{secrets.REACT_APP_FIREBASE_PROJECT_ID}}" >> .env
+          echo "REACT_APP_FIREBASE_STORAGE_BUCKET=${{secrets.REACT_APP_FIREBASE_STORAGE_BUCKET}}" >> .env
+          echo "REACT_APP_FIREBASE_SENDER_ID=${{secrets.REACT_APP_FIREBASE_SENDER_ID}}" >> .env
+          echo "REACT_APP_FIREBASE_APP_ID=${{secrets.REACT_APP_FIREBASE_APP_ID}}" >> .env
+          echo "REACT_APP_FIREBASE_MEASUREMENT_ID=${{secrets.REACT_APP_FIREBASE_MEASUREMENT_ID}}" >> .env
 
-
+      - name: Run Application
+        run: ./shop-app-v4
