@@ -24,10 +24,7 @@ jobs:
           echo "REACT_APP_FIREBASE_SENDER_ID=${{ secrets.REACT_APP_FIREBASE_SENDER_ID }}" >> .env
           echo "REACT_APP_FIREBASE_APP_ID=${{ secrets.REACT_APP_FIREBASE_APP_ID }}" >> .env
           echo "REACT_APP_FIREBASE_MEASUREMENT_ID=${{ secrets.REACT_APP_FIREBASE_MEASUREMENT_ID }}" >> .env
-      - name: Install and Build
-        run: |
-          npm install
-          npm run build
+    
       - name: Run Application
         run: ./shop-app-v4
         env:
