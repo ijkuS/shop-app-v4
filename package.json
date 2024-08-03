@@ -1,5 +1,6 @@
 {
   "name": "shop-app-v4",
+
   "version": "0.1.0",
   "private": true,
   "dependencies": {

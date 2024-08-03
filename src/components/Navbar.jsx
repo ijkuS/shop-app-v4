@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { OnUserStateChange, login, logout } from '../api/fbase';
 import { LiaShoppingBagSolid } from 'react-icons/lia';
 import User from './User';
 import { useAuthContext } from '../context/AuthContext';
-import Button from './ui/Button';
+// import Button from './ui/Button';
 
 export default function Navbar() {
 	const { user, login, logout } = useAuthContext();
@@ -34,17 +33,17 @@ export default function Navbar() {
 				<Link className='button' to='/products'>
 					All Products
 				</Link>
+				{user && user.isAdmin && (
+					<Link className='button' to='/products/new'>
+						Add New
+					</Link>
+				)}
 
-				<Link className='button' to='/products/new'>
-					Add New
-				</Link>
 				{user && <User user={user} />}
 				{user && (
 					// <Button text={'Sign Out'} onClick={logout} />
 
-					<button
-						className='button logout'
-						onClick={logout}>
+					<button className='button logout' onClick={logout}>
 						Sign Out
 					</button>
 				)}

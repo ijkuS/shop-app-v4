@@ -17,6 +17,7 @@
 	--color-text-light: #9ca3af;
 	--color-point: #a3e635;
 	--color-bg: #f9fafb;
+	--color-white: white;
 }
 body {
 	display: flex;
@@ -39,6 +40,13 @@ main {
 }
 a:visited {
 	color: var(--color-text);
+}
+section h2 {
+	font-size: 1.2rem ;
+   font-weight: normal;
+   color: var(--color-text);
+	padding: 2rem 0;
+	text-align: center;
 }
 /* -- Navbar --------------------------------------------------- */
 nav {
