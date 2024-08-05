@@ -24,8 +24,12 @@ export default function AddNewPage() {
 			setFiles((prevFiles) =>
 				[...prevFiles, ...fileArray].slice(0, 10)
 			);
-			const newUrls = fileArray.map((file) => URL.createObjectURL(file)); 
-			setPreviewUrls((prevUrls)=> [...prevUrls, ...newUrls].slice(0,10)); 
+			const newUrls = fileArray.map((file) =>
+				URL.createObjectURL(file)
+			);
+			setPreviewUrls((prevUrls) =>
+				[...prevUrls, ...newUrls].slice(0, 10)
+			);
 			return;
 		} else {
 			setProduct((prevProduct) => ({ ...prevProduct, [name]: value }));
@@ -47,11 +51,18 @@ export default function AddNewPage() {
 		} catch (error) {
 			console.error('Error on handleSubmit', error);
 			setSuccess(false);
-		} finally {
-			setTimeout(() => setSuccess(null), 4000);
-			setIsUploading(false);
-			// setSuccess(false);
 		}
+		setTimeout(() => setSuccess(null), 4000);
+		setIsUploading(false);
+		setPreviewUrls([]);
+		setFiles([]);
+		setProduct({
+			title: '',
+			price: '',
+			category: '',
+			description: '',
+			options: '',
+		});
 	};
 	const handleClick = (e) => {
 		e.preventDefault();
@@ -63,92 +74,97 @@ export default function AddNewPage() {
 	return (
 		<section className='page__add-new'>
 			<h2>Add New Products</h2>
-
-			<div className='preview-images'>
-				{previewUrls &&
-					previewUrls.map((url, index) => (
-						<img
-							src={url}
-							key={index}
-							alt={`preview-${index}`}
-						/>
-					))}
-			</div>
-			<form onSubmit={handleSubmit}>
-				<div className='disclaimer'>
-					<p>You can attach up to 10 images at once.</p>
-					<p>
-						Currently, you have attached
-						{` ${files.length} ` +
-							`${files.length > 1 ? 'images' : 'image'}. `}
-						You can upload {`${10 - files.length}`} more.
-					</p>
+			<div className='subwrapper'>
+				<div className='preview-images'>
+					{previewUrls &&
+						previewUrls.map((url, index) => (
+							<img
+								src={url}
+								key={index}
+								alt={`preview-${index}`}
+							/>
+						))}
 				</div>
-				<div className='file-input-area'>
-					<label htmlFor='file-input'>
-						Add files
-						{/* {files.length > 0 ? 'Choose files' : 'Add files'} */}
-					</label>
+				<form onSubmit={handleSubmit}>
+					<div className='disclaimer'>
+						<p>You can attach up to 10 images at once.</p>
+						<p>
+							Currently, you have attached
+							{` ${files.length} ` +
+								`${
+									files.length > 1
+										? 'images'
+										: 'image'
+								}. `}
+							You can upload {`${10 - files.length}`} more.
+						</p>
+					</div>
+					<div className='file-input-area'>
+						<label htmlFor='file-input'>
+							Add files
+							{/* {files.length > 0 ? 'Choose files' : 'Add files'} */}
+						</label>
+						<input
+							type='file'
+							accept='image/*'
+							name='files'
+							multiple
+							required
+							id='file-input'
+							onChange={handleChange}
+						/>
+					</div>
 					<input
-						type='file'
-						accept='image/*'
-						name='files'
-						multiple
+						type='text'
+						name='title'
+						placeholder='Product name'
+						value={product.title}
 						required
-						id='file-input'
 						onChange={handleChange}
 					/>
-				</div>
-				<input
-					type='text'
-					name='title'
-					placeholder='Product name'
-					value={product.title}
-					required
-					onChange={handleChange}
-				/>
-				<input
-					type='text'
-					name='category'
-					placeholder='Category'
-					value={product.category}
-					required
-					onChange={handleChange}
-				/>
-				<input
-					type='number'
-					name='price'
-					placeholder='Price (USD)'
-					value={product.price}
-					required
-					onChange={handleChange}
-				/>
-				<input
-					type='text'
-					name='description'
-					placeholder='Description'
-					value={product.description}
-					required
-					onChange={handleChange}
-				/>
-				<input
-					type='text'
-					name='options'
-					placeholder='Options(separated by commas)'
-					value={product.options}
-					required
-					onChange={handleChange}
-				/>
-				<button
-					className='button-upload'
-					disabled={isUploading}
-					onClick={handleClick}>
-					{isUploading ? 'Uploading...' : 'Click to Upload'}
-				</button>
-				{success && (
-					<p className='alert success'>Upload succesful!</p>
-				)}
-			</form>
+					<input
+						type='text'
+						name='category'
+						placeholder='Category'
+						value={product.category}
+						required
+						onChange={handleChange}
+					/>
+					<input
+						type='number'
+						name='price'
+						placeholder='Price (USD)'
+						value={product.price}
+						required
+						onChange={handleChange}
+					/>
+					<input
+						type='text'
+						name='description'
+						placeholder='Description'
+						value={product.description}
+						required
+						onChange={handleChange}
+					/>
+					<input
+						type='text'
+						name='options'
+						placeholder='Options(separated by commas)'
+						value={product.options}
+						required
+						onChange={handleChange}
+					/>
+					<button
+						className='button-upload'
+						disabled={isUploading}
+						onClick={handleClick}>
+						{isUploading ? 'Uploading...' : 'Click to Upload'}
+					</button>
+					{success && (
+						<p className='alert success'>Upload succesful!</p>
+					)}
+				</form>
+			</div>
 		</section>
 	);
 }

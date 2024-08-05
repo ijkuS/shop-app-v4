@@ -4,13 +4,13 @@ section.page__add-new {
 	flex-direction: column;
 	padding-bottom: 3rem;
 }
-.input-part {
-	width: 100%;
+.subwrapper {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
 	gap: 1rem;
 }
+
+
 section.page__add-new h2 {
 	text-align: center;
 	padding: 3rem;
@@ -23,6 +23,7 @@ section.page__add-new img {
 	max-width: 450px;
 	object-fit: cover;
 	margin: auto;
+	margin-bottom: 1rem;
 }
 section.page__add-new form {
 	width: 100%;
@@ -61,9 +62,10 @@ section.page__add-new input {
 	margin-bottom: 0.3rem;
 }
 
-section.page__add-new .disclaimer{
+section.page__add-new .disclaimer {
 	line-height: 120%;
-	padding: 1rem 0;
+	padding-bottom: 1rem;
+	font-size: 0.7rem;
 }
 
 section.page__add-new .button-upload {
@@ -77,3 +79,13 @@ section.page__add-new .button-upload {
 	margin: 0.2rem 0;
 }
 
+/* ----- Media Queries --------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+	.subwrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+}
+@media (max-width: 768px) {
+}

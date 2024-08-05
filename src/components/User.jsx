@@ -5,7 +5,7 @@ export default function User({ user }) {
 		<>
 			<div className='user-info'>
 				<img
-					class='user-photo'
+					className='user-photo'
 					src={user.photoURL}
 					alt={user.displayName}
 				/>
