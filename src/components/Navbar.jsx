@@ -28,7 +28,12 @@ export default function Navbar() {
 					<AiOutlineMenu />
 				</button>
 				<div className='logo'>
-					<Link to='/'>OOA</Link>
+					<Link to='/'>
+						<img
+							src='https://firebasestorage.googleapis.com/v0/b/react-shop-2024-2.appspot.com/o/images%2Fooa-logo.svg?alt=media&token=4dbab286-4762-4d00-ab1b-1711f1b7d6eb'
+							alt='logo'
+						/>
+					</Link>
 				</div>
 
 				<menu>
