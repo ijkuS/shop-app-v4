@@ -138,6 +138,13 @@ menu .button.carts {
 	font-weight: 600;
 	text-align: center;
 }
+/* ----- banner --------------------------------------------------------------------------- */
+
+.banner img {
+	width: 100vw;
+	height: 400px;
+	object-fit: cover;
+}
 /* ----- Media Queries --------------------------------------------------------------------------- */
 @media (max-width: 1200px) {
 	/* .mobile-menu__container {

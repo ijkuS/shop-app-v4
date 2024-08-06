@@ -110,4 +110,11 @@ export async function addNewProduct(product, imageUrls) {
 }
 
 // later! for product card and list
-export async function getProducts() {}
+export async function getProducts() {
+	return get(dbRef(database, 'products')).then((snapshot) => {
+		if (snapshot.exists()) {
+			return Object.values(snapshot.val());
+		}
+		return []; //snapshot이 없다면 텅텅빈 배열 전달해줘
+	});
+}

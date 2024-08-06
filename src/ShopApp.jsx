@@ -1,9 +1,12 @@
 import React from 'react';
+import AllProducts from './pages/AllProducts';
+import Banner from './components/Banner';
 
 export default function ShopApp() {
    return (
       <div>
-         HOME
+         <Banner />
+         <AllProducts />
       </div>
    );
 }
