@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { getProducts } from '../api/fbase';
 import ProductCard from '../components/ProductCard';
 import '../styles/AllProducts.css';

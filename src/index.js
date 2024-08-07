@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import NotFound from './pages/NotFound';
 import AllProducts from './pages/AllProducts';
+import WomenPage from './pages/WomenPage';
+import MenPage from './pages/MenPage';
+import SalesPage from './pages/SalesPage';
 import AddNewPage from './pages/AddNewPage';
 import MyCart from './pages/MyCart';
 import ProductDetail from './pages/ProductDetail';
@@ -21,6 +24,10 @@ const router = createBrowserRouter([
 		children: [
 			{ index: true, element: <ShopApp /> },
 			{ path: '/products', element: <AllProducts /> },
+			{ path: '/products/women', element: <WomenPage /> },
+			{ path: '/products/men', element: <MenPage /> },
+			{ path: '/products/sales', element: <SalesPage /> },
+
 			{
 				path: '/products/new',
 				element: (

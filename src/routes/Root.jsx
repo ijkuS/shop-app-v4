@@ -11,7 +11,9 @@ export default function Root() {
 			<AuthContextProvider>
 				<main>
 					<Navbar />
-					<Outlet />
+					<div className='outlet-container'>
+						<Outlet />
+					</div>
 				</main>
 			</AuthContextProvider>
 		</QueryClientProvider>

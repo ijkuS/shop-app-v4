@@ -1,4 +1,3 @@
-// import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { LiaShoppingBagSolid, LiaTimesSolid } from 'react-icons/lia';
 
@@ -17,7 +16,7 @@ export default function Navbar() {
 	};
 
 	return (
-		<nav>
+		<nav className='navbar'>
 			<section
 				className={`menu__container ${isMenuOpen ? 'open' : ''}`}>
 				<button
@@ -44,6 +43,15 @@ export default function Navbar() {
 					<Link className='button' to='/products'>
 						All Products
 					</Link>
+					<Link className='button' to='/products/women'>
+						Women
+					</Link>
+					<Link className='button' to='/products/men'>
+						Men
+					</Link>
+					<Link className='button' to='/products/sales'>
+						Sale
+					</Link>
 					{user && user.isAdmin && (
 						<Link className='button' to='/products/new'>
 							Add New
@@ -57,20 +65,19 @@ export default function Navbar() {
 					)}
 					{user && (
 						<button
-							className='button logout'
+							className='button log logout'
 							onClick={logout}>
 							Sign Out
 						</button>
 					)}
 
 					{!user && (
-						<button className='button login' onClick={login}>
+						<button className='button log login' onClick={login}>
 							Sign In
 						</button>
 					)}
 
 					<Link className='button carts' to='/carts'>
-						{/* Carts */}
 						<LiaShoppingBagSolid />
 					</Link>
 				</menu>

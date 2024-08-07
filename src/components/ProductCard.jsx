@@ -17,9 +17,9 @@ export default function ProductCard({ product }) {
 				<img src={images[0]} alt={title} />
 			</div>
 			<div className='text-container'>
-				<p>{title}</p>
-				<p>{category}</p>
-				<p>{`${price} USD`}</p>
+				<p className='title'>{title}</p>
+				<p className='category'>{category}</p>
+				<p className='price'>{`${price} USD`}</p>
 			</div>
 		</div>
 	);
